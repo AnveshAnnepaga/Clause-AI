@@ -16,11 +16,19 @@ st.set_page_config(
 )
 
 # ---------------- LOAD CSS ----------------
+# --------------- LOAD CSS ----------------
+import os
+
 try:
-    with open("styles.css", "r", encoding="utf-8") as f:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    css_path = os.path.join(BASE_DIR, "styles.css")
+
+    with open(css_path, "r", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 except Exception as e:
     st.error(f"CSS load error: {e}")
+
 
 # ---------------- SESSION STATE ----------------
 st.session_state.setdefault("authenticated", False)
