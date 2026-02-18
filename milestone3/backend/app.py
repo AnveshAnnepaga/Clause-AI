@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from milestone3.backend.contract_pipeline import run_full_pipeline, stable_contract_id
-from db_sqlite import (
+from milestone3.backend.db_sqlite import (
     create_user,
     delete_analysis_run,
     get_analysis_run,
