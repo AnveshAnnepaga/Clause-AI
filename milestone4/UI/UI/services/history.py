@@ -1,140 +1,54 @@
-from __future__ import annotations
-
-import os
-from typing import Any, Dict, List, Optional
-
+import streamlit as st
 import requests
+import os
+
+BACKEND_URL = os.getenv(
+    "BACKEND_URL",
+    "https://clause-ai-53gp.onrender.com"
+)
 
 
-# ----------------------------------------------------
-# Configuration
-# ----------------------------------------------------
+def history_page():
+    st.title("History")
 
-def _base_url() -> str:
-    return (
-        os.getenv("BACKEND_URL")
-        or "https://clause-ai-53gp.onrender.com"
-    ).rstrip("/")
+    if not st.session_state.get("authenticated"):
+        st.warning("Please login to view your history.")
+        return
 
+    token = st.session_state.get("token")
 
-def _headers(token: str | None) -> Dict[str, str]:
     if not token:
-        return {}
-    return {"Authorization": f"Bearer {token}"}
+        st.error("Session expired. Please login again.")
+        return
 
-
-def _safe_json(resp: requests.Response) -> Any:
     try:
-        return resp.json()
-    except Exception:
-        return resp.text
-
-
-# ----------------------------------------------------
-# History APIs
-# ----------------------------------------------------
-
-def list_runs(*, token: str, limit: int = 8) -> List[Dict[str, Any]]:
-    try:
-        url = f"{_base_url()}/history"
         r = requests.get(
-            url,
-            params={"limit": int(limit)},
-            headers=_headers(token),
-            timeout=30,
+            f"{BACKEND_URL}/history",
+            headers={"Authorization": f"Bearer {token}"},
+            timeout=20
         )
-    except Exception:
-        return []
 
-    if r.status_code >= 400:
-        return []
+        if r.status_code != 200:
+            st.error("Failed to load history.")
+            return
 
-    data = _safe_json(r)
+        data = r.json()
 
-    if isinstance(data, dict) and data.get("ok") and isinstance(data.get("runs"), list):
-        return data["runs"]
+        if not data.get("ok"):
+            st.error("Invalid response from backend.")
+            return
 
-    return []
+        runs = data.get("runs", [])
 
+        if not runs:
+            st.info("No saved analyses found.")
+            return
 
-def get_run(*, token: str, run_id: int) -> Optional[Dict[str, Any]]:
-    try:
-        url = f"{_base_url()}/history/{int(run_id)}"
-        r = requests.get(
-            url,
-            headers=_headers(token),
-            timeout=30,
-        )
-    except Exception:
-        return None
+        for run in runs:
+            with st.expander(f"Run #{run['id']} — {run['question']}"):
+                st.write("Tone:", run["tone"])
+                st.write("Mode:", run["mode"])
+                st.write("Created At:", run["created_at"])
 
-    if r.status_code >= 400:
-        return None
-
-    data = _safe_json(r)
-
-    if isinstance(data, dict) and data.get("ok"):
-        run = data.get("run")
-        return run if isinstance(run, dict) else None
-
-    return None
-
-
-def delete_run(*, token: str, run_id: int) -> bool:
-    try:
-        url = f"{_base_url()}/history/{int(run_id)}"
-        r = requests.delete(
-            url,
-            headers=_headers(token),
-            timeout=30,
-        )
-        return r.status_code < 400
-    except Exception:
-        return False
-
-
-def save_run(
-    *,
-    token: str,
-    mode: str,
-    question: str,
-    tone: str,
-    run_all_agents: bool,
-    no_evidence_threshold: float,
-    filenames: List[str],
-    results: List[Dict[str, Any]],
-) -> Optional[int]:
-
-    payload = {
-        "mode": mode,
-        "question": question,
-        "tone": tone,
-        "run_all_agents": bool(run_all_agents),
-        "no_evidence_threshold": float(no_evidence_threshold),
-        "filenames": list(filenames or []),
-        "results": list(results or []),
-    }
-
-    try:
-        url = f"{_base_url()}/history/save"
-        r = requests.post(
-            url,
-            json=payload,
-            headers=_headers(token),
-            timeout=30,
-        )
-    except Exception:
-        return None
-
-    if r.status_code >= 400:
-        return None
-
-    data = _safe_json(r)
-
-    if isinstance(data, dict) and data.get("ok") and data.get("id") is not None:
-        try:
-            return int(data["id"])
-        except Exception:
-            return None
-
-    return None
+    except Exception as e:
+        st.error(f"Error loading history: {e}")
