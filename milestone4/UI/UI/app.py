@@ -1,5 +1,9 @@
 import streamlit as st
+
+import sys
 import os
+
+sys.path.append(os.path.dirname(__file__))
 
 from components.header import render_header
 from components.sidebar import render_sidebar
