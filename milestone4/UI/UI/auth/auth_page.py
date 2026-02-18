@@ -13,10 +13,11 @@ BACKEND_URL = (
 ).rstrip("/")
 
 
-# ---------------- AUTH PAGE RENDER ----------------
+# ---------------- AUTH PAGE ----------------
 
 def render_auth_page():
 
+    # Handle redirect from registration
     if st.session_state.get("auth_nav_redirect"):
         st.session_state["auth_nav_selection"] = st.session_state.pop("auth_nav_redirect")
 
@@ -67,16 +68,29 @@ def show_login():
                     "email": email.strip(),
                     "password": password,
                 },
-                timeout=20,
+                timeout=60,
             )
 
             if r.status_code == 200:
                 data = r.json()
 
-                st.session_state.authenticated = True
-                st.session_state.user = data.get("user")
-                st.session_state.token = data.get("token")
-                st.session_state.page = "dashboard"
+                backend_user = data.get("user") or {}
+                token = data.get("token") or data.get("access_token")
+
+                if not token:
+                    st.error("Login failed: No token received.")
+                    return
+
+                # 🔥 STORE TOKEN INSIDE USER OBJECT (CRITICAL FIX)
+                st.session_state["authenticated"] = True
+                st.session_state["user"] = {
+                    "email": backend_user.get("email") or email.strip(),
+                    "name": backend_user.get("name"),
+                    "role": backend_user.get("role"),
+                    "token": token,  # ← THIS FIXES HISTORY
+                }
+
+                st.session_state["page"] = "dashboard"
 
                 st.success("Login successful!")
                 st.rerun()
@@ -88,8 +102,12 @@ def show_login():
                     detail = "Login failed."
                 st.error(detail)
 
+        except requests.exceptions.Timeout:
+            st.error("Backend timeout. Please try again.")
+        except requests.exceptions.ConnectionError:
+            st.error("Cannot connect to backend server.")
         except Exception as e:
-            st.error(f"Could not connect to backend: {e}")
+            st.error(f"Unexpected error: {e}")
 
 
 # ---------------- REGISTER ----------------
@@ -125,7 +143,7 @@ def show_register():
                     "name": full_name or email,
                     "role": "User"
                 },
-                timeout=20,
+                timeout=30,
             )
 
             if r.status_code == 200:
@@ -140,8 +158,12 @@ def show_register():
                     detail = "Registration failed."
                 st.error(detail)
 
+        except requests.exceptions.Timeout:
+            st.error("Backend timeout. Please try again.")
+        except requests.exceptions.ConnectionError:
+            st.error("Cannot connect to backend server.")
         except Exception as e:
-            st.error(f"Could not connect to backend: {e}")
+            st.error(f"Unexpected error: {e}")
 
 
 # ---------------- FORGOT PASSWORD ----------------
