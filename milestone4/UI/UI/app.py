@@ -1,17 +1,14 @@
 import streamlit as st
-
-import sys
 import os
 
-sys.path.append(os.path.dirname(__file__))
+from components.header import render_header
+from components.sidebar import render_sidebar
+from app_pages.landing import landing_page
+from app_pages.about import about_page
+from auth.auth_page import render_auth_page
+from app_pages.dashboard import dashboard_page
+from app_pages.history import history_page
 
-from milestone4.UI.UI.components.header import render_header
-from milestone4.UI.UI.components.sidebar import render_sidebar
-from milestone4.UI.UI.app_pages.landing import landing_page
-from milestone4.UI.UI.app_pages.about import about_page
-from milestone4.UI.UI.auth.auth_page import render_auth_page
-from milestone4.UI.UI.app_pages.dashboard import dashboard_page
-from milestone4.UI.UI.app_pages.history import history_page
 
 
 st.set_page_config(
