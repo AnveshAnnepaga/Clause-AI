@@ -18,9 +18,9 @@ st.set_page_config(
 )
 
 
-# ---------------- LOAD CSS (FIXED FOR STREAMLIT CLOUD) ----------------
+# ---------------- LOAD CSS ----------------
 try:
-    base_path = os.path.dirname(__file__)  # Gets directory of app.py
+    base_path = os.path.dirname(__file__)
     css_path = os.path.join(base_path, "styles.css")
 
     if os.path.exists(css_path):
@@ -39,6 +39,7 @@ except Exception as e:
 # ---------------- SESSION STATE ----------------
 st.session_state.setdefault("authenticated", False)
 st.session_state.setdefault("user", None)
+st.session_state.setdefault("token", None)  # ✅ REQUIRED for backend auth
 st.session_state.setdefault("page", "landing")
 st.session_state.setdefault("auth_nav_selection", "Login")
 st.session_state.setdefault("uploader_key", 0)
@@ -55,18 +56,28 @@ if st.session_state.authenticated:
 
 # ---------------- ROUTING ----------------
 if st.session_state.authenticated:
+
     if st.session_state.page == "history":
         history_page()
+
+    elif st.session_state.page == "dashboard":
+        dashboard_page()
+
     else:
         # Default authenticated landing
         st.session_state.page = "dashboard"
         dashboard_page()
+
 else:
+
     if st.session_state.page == "landing":
         landing_page()
+
     elif st.session_state.page == "auth":
         render_auth_page()
+
     elif st.session_state.page == "about":
         about_page()
+
     else:
         landing_page()

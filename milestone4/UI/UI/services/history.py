@@ -6,8 +6,15 @@ from typing import Any, Dict, List, Optional
 import requests
 
 
+# ----------------------------------------------------
+# Configuration
+# ----------------------------------------------------
+
 def _base_url() -> str:
-    return (os.getenv("BACKEND_URL") or "https://clause-ai-53gp.onrender.com").rstrip("/")
+    return (
+        os.getenv("BACKEND_URL")
+        or "https://clause-ai-53gp.onrender.com"
+    ).rstrip("/")
 
 
 def _headers(token: str | None) -> Dict[str, str]:
@@ -23,33 +30,67 @@ def _safe_json(resp: requests.Response) -> Any:
         return resp.text
 
 
+# ----------------------------------------------------
+# History APIs
+# ----------------------------------------------------
+
 def list_runs(*, token: str, limit: int = 8) -> List[Dict[str, Any]]:
-    url = f"{_base_url()}/history"
-    r = requests.get(url, params={"limit": int(limit)}, headers=_headers(token), timeout=30)
+    try:
+        url = f"{_base_url()}/history"
+        r = requests.get(
+            url,
+            params={"limit": int(limit)},
+            headers=_headers(token),
+            timeout=30,
+        )
+    except Exception:
+        return []
+
     if r.status_code >= 400:
         return []
+
     data = _safe_json(r)
+
     if isinstance(data, dict) and data.get("ok") and isinstance(data.get("runs"), list):
         return data["runs"]
+
     return []
 
 
 def get_run(*, token: str, run_id: int) -> Optional[Dict[str, Any]]:
-    url = f"{_base_url()}/history/{int(run_id)}"
-    r = requests.get(url, headers=_headers(token), timeout=30)
+    try:
+        url = f"{_base_url()}/history/{int(run_id)}"
+        r = requests.get(
+            url,
+            headers=_headers(token),
+            timeout=30,
+        )
+    except Exception:
+        return None
+
     if r.status_code >= 400:
         return None
+
     data = _safe_json(r)
+
     if isinstance(data, dict) and data.get("ok"):
         run = data.get("run")
         return run if isinstance(run, dict) else None
+
     return None
 
 
 def delete_run(*, token: str, run_id: int) -> bool:
-    url = f"{_base_url()}/history/{int(run_id)}"
-    r = requests.delete(url, headers=_headers(token), timeout=30)
-    return r.status_code < 400
+    try:
+        url = f"{_base_url()}/history/{int(run_id)}"
+        r = requests.delete(
+            url,
+            headers=_headers(token),
+            timeout=30,
+        )
+        return r.status_code < 400
+    except Exception:
+        return False
 
 
 def save_run(
@@ -63,7 +104,7 @@ def save_run(
     filenames: List[str],
     results: List[Dict[str, Any]],
 ) -> Optional[int]:
-    url = f"{_base_url()}/history/save"
+
     payload = {
         "mode": mode,
         "question": question,
@@ -73,13 +114,27 @@ def save_run(
         "filenames": list(filenames or []),
         "results": list(results or []),
     }
-    r = requests.post(url, json=payload, headers=_headers(token), timeout=30)
+
+    try:
+        url = f"{_base_url()}/history/save"
+        r = requests.post(
+            url,
+            json=payload,
+            headers=_headers(token),
+            timeout=30,
+        )
+    except Exception:
+        return None
+
     if r.status_code >= 400:
         return None
+
     data = _safe_json(r)
+
     if isinstance(data, dict) and data.get("ok") and data.get("id") is not None:
         try:
             return int(data["id"])
         except Exception:
             return None
+
     return None
