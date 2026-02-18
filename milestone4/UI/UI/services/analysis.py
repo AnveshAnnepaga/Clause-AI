@@ -35,7 +35,7 @@ class BackendContractAnalyzer:
         base_url: Optional[str] = None,
         timeout_s: float = 180.0,
     ) -> None:
-        self.base_url = (base_url or os.getenv("BACKEND_URL") or "http://127.0.0.1:8000").rstrip("/")
+        self.base_url = (base_url or os.getenv("BACKEND_URL") or "https://clause-ai-53gp.onrender.com").rstrip("/")
         self.timeout_s = float(timeout_s)
 
     def analyze_file(

@@ -7,7 +7,7 @@ import requests
 
 
 def _base_url() -> str:
-    return (os.getenv("BACKEND_URL") or "http://127.0.0.1:8000").rstrip("/")
+    return (os.getenv("BACKEND_URL") or "https://clause-ai-53gp.onrender.com").rstrip("/")
 
 
 def _safe_json(resp: requests.Response) -> Any:
