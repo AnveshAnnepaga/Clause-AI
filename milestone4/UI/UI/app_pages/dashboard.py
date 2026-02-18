@@ -6,13 +6,13 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List
 
 import streamlit as st
-from services.analysis import ContractAnalyzer
-from services.history import save_run
+from milestone4.UI.UI.services.analysis import ContractAnalyzer
+from milestone4.UI.UI.services.history import save_run
 
-from utils.report_pdf import make_pdf_filename, run_to_pdf_bytes
-from components.final_report import JsonEvidencePanel, ReportSummary
-from components.pdf_preview import PDFPreviewWithHighlights, ConfirmationPanel
-from components.qa_report import QuestionAnswerReport, QuestionAnswerWithPDF
+from milestone4.UI.UI.utils.report_pdf import make_pdf_filename, run_to_pdf_bytes
+from milestone4.UI.UI.components.final_report import JsonEvidencePanel, ReportSummary
+from milestone4.UI.UI.components.pdf_preview import PDFPreviewWithHighlights, ConfirmationPanel
+from milestone4.UI.UI.components.qa_report import QuestionAnswerReport, QuestionAnswerWithPDF
 
 def dashboard_page():
     # Surface any history-load error from sidebar/history page.

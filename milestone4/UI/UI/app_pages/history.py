@@ -5,8 +5,8 @@ from typing import Any, Dict, Optional
 
 import streamlit as st
 
-from services.history import delete_run, get_run, list_runs
-from utils.report_pdf import make_pdf_filename, run_to_pdf_bytes
+from milestone4.UI.UI.services.history import delete_run, get_run, list_runs
+from milestone4.UI.UI.utils.report_pdf import make_pdf_filename, run_to_pdf_bytes
 
 
 @st.cache_data(show_spinner=False, ttl=60)
