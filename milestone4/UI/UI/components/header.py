@@ -6,7 +6,7 @@ def render_header():
 
     # 🟢 LEFT: LOGO (DISPLAY ONLY)
     with col1:
-        logo_path = os.path.join("assets", "logo.png")  # make sure folder is 'assets'
+        logo_path = os.path.join("mileston4/UI/UI/assets", "logo.png")  # make sure folder is 'assets'
 
         if os.path.exists(logo_path):
             st.image(logo_path, width=75)
