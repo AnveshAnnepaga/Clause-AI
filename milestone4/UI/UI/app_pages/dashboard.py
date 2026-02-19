@@ -126,7 +126,10 @@ def dashboard_page():
 
     user = st.session_state.get("user") or {}
     user_email = (user.get("email") or "").strip().lower() if isinstance(user, dict) else ""
-    token = (user.get("token") or "").strip() if isinstance(user, dict) else ""
+
+# ✅ FIX — token is stored separately, not inside user
+    token = (st.session_state.get("token") or "").strip()
+
 
     # Initialize QA history
     if "qa_history" not in st.session_state:
