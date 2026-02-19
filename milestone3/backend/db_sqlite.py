@@ -8,7 +8,7 @@ import secrets
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
-from db_postgres import get_conn  # Supabase connection
+from milestone3.backend.db_postgres import get_conn  # Supabase connection
 
 # ============================================================
 # HELPERS
