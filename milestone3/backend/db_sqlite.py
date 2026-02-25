@@ -3,315 +3,207 @@ from __future__ import annotations
 import base64
 import hashlib
 import hmac
-import json
+import os
 import secrets
+import sqlite3
 from datetime import datetime, timedelta, timezone
-from typing import Any, Dict, List, Optional, Tuple
+from pathlib import Path
+from typing import Any, Dict, Optional, Tuple
 
-from milestone3.backend.db_postgres import get_conn  # Supabase connection
+# ============================================================
+# DATABASE LOCATION
+# ============================================================
+
+BASE_DIR = Path(__file__).resolve().parent
+DB_PATH = BASE_DIR / "clauseai_backend.sqlite3"
+
+SESSION_TTL_HOURS = 72
+
+
+# ============================================================
+# DB CONNECTION
+# ============================================================
+
+def _connect() -> sqlite3.Connection:
+    con = sqlite3.connect(DB_PATH)
+    con.row_factory = sqlite3.Row
+    return con
+
+
+def init_db() -> None:
+    with _connect() as con:
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS users (
+                email TEXT PRIMARY KEY,
+                name TEXT NOT NULL,
+                role TEXT NOT NULL,
+                avatar TEXT,
+                password_salt TEXT NOT NULL,
+                password_hash TEXT NOT NULL,
+                created_at TEXT NOT NULL
+            )
+        """)
+
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS sessions (
+                token TEXT PRIMARY KEY,
+                user_email TEXT NOT NULL,
+                created_at TEXT NOT NULL,
+                expires_at TEXT NOT NULL,
+                FOREIGN KEY(user_email) REFERENCES users(email)
+            )
+        """)
+
+        con.commit()
+
 
 # ============================================================
 # HELPERS
 # ============================================================
 
-SESSION_TTL_HOURS = 72
-
 def _utc_now() -> datetime:
     return datetime.now(timezone.utc)
+
 
 def _utc_now_iso() -> str:
     return _utc_now().isoformat()
 
+
 def _norm_email(email: str) -> str:
     return (email or "").strip().lower()
+
 
 def _new_salt() -> bytes:
     return secrets.token_bytes(16)
 
+
 def _encode_salt(salt: bytes) -> str:
     return base64.b64encode(salt).decode("ascii")
+
 
 def _decode_salt(salt_b64: str) -> bytes:
     return base64.b64decode(salt_b64.encode("ascii"))
 
-def _pbkdf2_hash(password: str, *, salt: bytes, iterations: int = 120_000) -> str:
-    dk = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, iterations)
+
+def _pbkdf2_hash(password: str, *, salt: bytes) -> str:
+    dk = hashlib.pbkdf2_hmac(
+        "sha256",
+        password.encode("utf-8"),
+        salt,
+        120_000
+    )
     return base64.b64encode(dk).decode("ascii")
+
 
 def _verify_password(password: str, *, salt_b64: str, expected_hash: str) -> bool:
     salt = _decode_salt(salt_b64)
     got = _pbkdf2_hash(password, salt=salt)
     return hmac.compare_digest(expected_hash, got)
 
-# ============================================================
-# USER MANAGEMENT
-# ============================================================
-
-def create_user(*, email: str, password: str, name: str, role: str = "User") -> Tuple[bool, str]:
-    email_n = _norm_email(email)
-    salt = _new_salt()
-    from __future__ import annotations
-
-import base64
-import hashlib
-import hmac
-import json
-import secrets
-from datetime import datetime, timedelta, timezone
-from typing import Any, Dict, List, Optional, Tuple
-
-from milestone3.backend.db_postgres import get_conn  # Supabase connection
-
-# ============================================================
-# HELPERS
-# ============================================================
-
-SESSION_TTL_HOURS = 72
-
-def _utc_now() -> datetime:
-    return datetime.now(timezone.utc)
-
-def _utc_now_iso() -> str:
-    return _utc_now().isoformat()
-
-def _norm_email(email: str) -> str:
-    return (email or "").strip().lower()
-
-def _new_salt() -> bytes:
-    return secrets.token_bytes(16)
-
-def _encode_salt(salt: bytes) -> str:
-    return base64.b64encode(salt).decode("ascii")
-
-def _decode_salt(salt_b64: str) -> bytes:
-    return base64.b64decode(salt_b64.encode("ascii"))
-
-def _pbkdf2_hash(password: str, *, salt: bytes, iterations: int = 120_000) -> str:
-    dk = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, iterations)
-    return base64.b64encode(dk).decode("ascii")
-
-def _verify_password(password: str, *, salt_b64: str, expected_hash: str) -> bool:
-    salt = _decode_salt(salt_b64)
-    got = _pbkdf2_hash(password, salt=salt)
-    return hmac.compare_digest(expected_hash, got)
 
 # ============================================================
 # USER MANAGEMENT
 # ============================================================
 
 def create_user(*, email: str, password: str, name: str, role: str = "User") -> Tuple[bool, str]:
+    init_db()
     email_n = _norm_email(email)
+
+    if not email_n or "@" not in email_n:
+        return False, "Invalid email"
+
+    if len(password or "") < 4:
+        return False, "Password too short"
+
     salt = _new_salt()
 
-    with get_conn() as con:
-        with con.cursor() as cur:
-            cur.execute("SELECT 1 FROM users WHERE email = %s", (email_n,))
-            if cur.fetchone():
-                return False, "User already exists"
+    with _connect() as con:
+        exists = con.execute(
+            "SELECT 1 FROM users WHERE email = ?",
+            (email_n,)
+        ).fetchone()
 
-            avatar = f"https://api.dicebear.com/7.x/initials/svg?seed={name}"
+        if exists:
+            return False, "User already exists"
 
-            cur.execute("""
-                INSERT INTO users(email, name, role, avatar, password_salt, password_hash, created_at)
-                VALUES (%s, %s, %s, %s, %s, %s, %s)
-            """, (
-                email_n,
-                name,
-                role,
-                avatar,
-                _encode_salt(salt),
-                _pbkdf2_hash(password, salt=salt),
-                _utc_now(),
-            ))
-            con.commit()
+        avatar = f"https://api.dicebear.com/7.x/initials/svg?seed={name}"
+
+        con.execute("""
+            INSERT INTO users(
+                email, name, role, avatar,
+                password_salt, password_hash, created_at
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            email_n,
+            name,
+            role,
+            avatar,
+            _encode_salt(salt),
+            _pbkdf2_hash(password, salt=salt),
+            _utc_now_iso()
+        ))
+
+        con.commit()
 
     return True, "Account created"
 
+
 def login(*, email: str, password: str) -> Optional[Tuple[str, Dict[str, Any]]]:
+    init_db()
     email_n = _norm_email(email)
-    with get_conn() as con:
-        cur = con.cursor()
-        cur.execute("SELECT * FROM users WHERE email = %s", (email_n,))
-        row = cur.fetchone()
+
+    with _connect() as con:
+        row = con.execute(
+            "SELECT * FROM users WHERE email = ?",
+            (email_n,)
+        ).fetchone()
+
         if not row:
             return None
 
-        if not _verify_password(password, salt_b64=row["password_salt"], expected_hash=row["password_hash"]):
+        if not _verify_password(
+            password,
+            salt_b64=row["password_salt"],
+            expected_hash=row["password_hash"]
+        ):
             return None
 
         token = secrets.token_urlsafe(32)
         expires = _utc_now() + timedelta(hours=SESSION_TTL_HOURS)
 
-        cur.execute("""
+        con.execute("""
             INSERT INTO sessions(token, user_email, created_at, expires_at)
-            VALUES (%s, %s, %s, %s)
-            """, (token, email_n, _utc_now(), expires))
+            VALUES (?, ?, ?, ?)
+        """, (
+            token,
+            email_n,
+            _utc_now_iso(),
+            expires.isoformat()
+        ))
+
         con.commit()
 
         user = {
-                "email": row["email"],
-                "name": row["name"],
-                "role": row["role"],
-                "avatar": row["avatar"],
-            }
+            "email": row["email"],
+            "name": row["name"],
+            "role": row["role"],
+            "avatar": row["avatar"],
+        }
 
         return token, user
 
-# ============================================================
-# ANALYSIS HISTORY
-# ============================================================
 
-def save_analysis_run(
-    *,
-    user_email: str,
-    mode: str,
-    question: str,
-    tone: str,
-    run_all_agents: bool,
-    no_evidence_threshold: float,
-    filenames: List[str],
-    results: List[Dict[str, Any]],
-) -> int:
-    with get_conn() as con:
-        cur = con.cursor()
-        cur.execute("""
-                INSERT INTO analysis_runs(
-                    user_email, created_at, mode, question, tone,
-                    run_all_agents, no_evidence_threshold, files_json, results_json
-                )
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-                RETURNING id
-            """, (
-                user_email,
-                _utc_now(),
-                mode,
-                question,
-                tone,
-                run_all_agents,
-                no_evidence_threshold,
-                json.dumps(filenames),
-                json.dumps(results),
-            ))
+def user_from_token(token: str) -> Optional[Dict[str, Any]]:
+    init_db()
 
-        run_id = cur.fetchone()["id"]
-        con.commit()
-        return run_id
+    with _connect() as con:
+        row = con.execute("""
+            SELECT u.*
+            FROM sessions s
+            JOIN users u ON u.email = s.user_email
+            WHERE s.token = ?
+              AND s.expires_at > ?
+        """, (token, _utc_now_iso())).fetchone()
 
-def list_analysis_runs(*, user_email: str, limit: int = 10) -> List[Dict[str, Any]]:
-    with get_conn() as con:
-        with con.cursor() as cur:
-            cur.execute("""
-                SELECT *
-                FROM analysis_runs
-                WHERE user_email = %s
-                ORDER BY id DESC
-                LIMIT %s
-            """, (user_email, limit))
-
-            return cur.fetchall()
-
-            cur.execute("SELECT 1 FROM users WHERE email = %s", (email_n,))
-            if cur.fetchone():
-                return False, "User already exists"
-
-            avatar = f"https://api.dicebear.com/7.x/initials/svg?seed={name}"
-
-            cur.execute("""
-                INSERT INTO users(email, name, role, avatar, password_salt, password_hash, created_at)
-                VALUES (%s, %s, %s, %s, %s, %s, %s)
-            """, (
-                email_n,
-                name,
-                role,
-                avatar,
-                _encode_salt(salt),
-                _pbkdf2_hash(password, salt=salt),
-                _utc_now(),
-            ))
-            con.commit()
-
-    return True, "Account created"
-
-def login(*, email: str, password: str) -> Optional[Tuple[str, Dict[str, Any]]]:
-    email_n = _norm_email(email)
-    with get_conn() as con:
-        cur = con.cursor()
-        cur.execute("SELECT * FROM users WHERE email = %s", (email_n,))
-        row = cur.fetchone()
-        if not row:
-            return None
-
-        if not _verify_password(password, salt_b64=row["password_salt"], expected_hash=row["password_hash"]):
-            return None
-
-        token = secrets.token_urlsafe(32)
-        expires = _utc_now() + timedelta(hours=SESSION_TTL_HOURS)
-
-        cur.execute("""
-            INSERT INTO sessions(token, user_email, created_at, expires_at)
-            VALUES (%s, %s, %s, %s)
-            """, (token, email_n, _utc_now(), expires))
-        con.commit()
-
-        user = {
-                "email": row["email"],
-                "name": row["name"],
-                "role": row["role"],
-                "avatar": row["avatar"],
-            }
-
-        return token, user
-
-# ============================================================
-# ANALYSIS HISTORY
-# ============================================================
-
-def save_analysis_run(
-    *,
-    user_email: str,
-    mode: str,
-    question: str,
-    tone: str,
-    run_all_agents: bool,
-    no_evidence_threshold: float,
-    filenames: List[str],
-    results: List[Dict[str, Any]],
-) -> int:
-    with get_conn() as con:
-        cur = con.cursor()
-        cur.execute("""
-                INSERT INTO analysis_runs(
-                    user_email, created_at, mode, question, tone,
-                    run_all_agents, no_evidence_threshold, files_json, results_json
-                )
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-                RETURNING id
-            """, (
-                user_email,
-                _utc_now(),
-                mode,
-                question,
-                tone,
-                run_all_agents,
-                no_evidence_threshold,
-                json.dumps(filenames),
-                json.dumps(results),
-            ))
-
-        run_id = cur.fetchone()["id"]
-        con.commit()
-        return run_id
-
-def list_analysis_runs(*, user_email: str, limit: int = 10) -> List[Dict[str, Any]]:
-    with get_conn() as con:
-        cur = con.cursor()
-
-        cur.execute("""
-                SELECT *
-                FROM analysis_runs
-                WHERE user_email = %s
-                ORDER BY id DESC
-                LIMIT %s
-            """, (user_email, limit))
-
-        return cur.fetchall()
+    return dict(row) if row else None
