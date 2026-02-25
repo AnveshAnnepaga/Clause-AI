@@ -7,7 +7,7 @@ from typing import Any, Dict, List
 
 import streamlit as st
 from services.analysis import ContractAnalyzer
-from services.history import save_run
+from services.history_excel import save_history
 
 from utils.report_pdf import make_pdf_filename, run_to_pdf_bytes
 from components.final_report import JsonEvidencePanel, ReportSummary
@@ -180,15 +180,14 @@ def dashboard_page():
         if user_email and token:
             try:
                 cleaned_res = {k: v for k, v in res.items() if k not in {"_file_b64", "_file_mime"}}
-                save_run(
-                    token=token,
-                    mode="analysis",
+
+                risk = (res.get("analysis") or {}).get("overall_risk", "unknown")
+
+                save_history(
+                    user_email=user_email,
+                    filename=files.name,
                     question=q,
-                    tone=tone,
-                    run_all_agents=bool(full_review),
-                    no_evidence_threshold=0.15,
-                    filenames=[files.name],
-                    results=[cleaned_res],
+                    risk=risk
                 )
             except Exception:
                 pass
