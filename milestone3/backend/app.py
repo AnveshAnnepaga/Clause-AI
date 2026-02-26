@@ -25,7 +25,7 @@ from milestone3.backend.db_sqlite import (
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()         # create users + sessions tables
-    seed_demo_users() # optional demo accounts
+     # optional demo accounts
     yield
 
 # -------------------------------------------------------------------
