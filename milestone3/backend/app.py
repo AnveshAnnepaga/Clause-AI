@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 
 from milestone3.backend.contract_pipeline import run_full_pipeline, stable_contract_id
 from milestone3.backend.db_sqlite import (
+    init_db,
     create_user,
     login,
     user_from_token,
