@@ -1,0 +1,883 @@
+[
+  {
+    "type": "final",
+    "timestamp": "2026-06-08T11:41:03.043928+00:00",
+    "question": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+    "question_embedding": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.5163977742195129,
+      0.0,
+      0.0,
+      0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.25819888710975647,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_json": {
+      "contract_id": "uploaded_09e1df467e92",
+      "generated_at": "2026-06-08T11:41:03.041908+00:00",
+      "intent": "risk_analysis",
+      "question": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+      "qa": {
+        "question": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+        "answer": "",
+        "sections": []
+      },
+      "analysis": {
+        "legal": {
+          "risk_level": "n/a",
+          "findings": [
+            "No relevant clause identified for termination or limitation of liability in the provided text."
+          ],
+          "evidence": []
+        },
+        "compliance": {
+          "risk_level": "n/a",
+          "findings": [
+            "No relevant clause identified for privacy/data protection, breach notification, retention, or audit/security controls in the provided text."
+          ],
+          "evidence": []
+        },
+        "finance": {
+          "risk_level": "low",
+          "findings": [
+            "Late Fees include an interest/charge provision for overdue amounts."
+          ],
+          "evidence": [
+            "We are seeking Co-Op candidates interested in applying data science to the ad-tech space."
+          ]
+        },
+        "operations": {
+          "risk_level": "low",
+          "findings": [
+            "SLA/service levels are defined in the provided text."
+          ],
+          "evidence": [
+            "● Perform R&D work by prototyping new statistical and data modeling frameworks, translating prototypes into SQL and PySpark workflows, and then drive those prototypes into production."
+          ]
+        },
+        "overall_risk": "low",
+        "executive_summary_points": [
+          "Finance risk is LOW based on the payment timing and late-fee structure stated in the agreement.",
+          "Operations risk is LOW based on the defined SLA commitments and stated remedies (e.g., service credits)."
+        ],
+        "key_evidence": [
+          {
+            "label": "Late Fees",
+            "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space."
+          },
+          {
+            "label": "Service Levels (SLA)",
+            "text": "● Perform R&D work by prototyping new statistical and data modeling frameworks, translating prototypes into SQL and PySpark workflows, and then drive those prototypes into production."
+          }
+        ]
+      },
+      "agent_analysis": {
+        "selected_agents": [
+          "legal",
+          "compliance",
+          "finance",
+          "operations"
+        ],
+        "legal": {
+          "agent_type": "legal",
+          "question": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+          "timestamp": "2026-06-08T11:41:03.038895+00:00",
+          "confidence": 0.07105606157953541,
+          "risk_level": "medium",
+          "retrieval": {
+            "top_k_per_query": 5,
+            "per_query": [
+              {
+                "query": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+                "matches": [
+                  {
+                    "score": 0.16467741131782532,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.09877296537160873,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": 0.042900945991277695,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  }
+                ]
+              },
+              {
+                "query": "termination breach Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+                "matches": [
+                  {
+                    "score": 0.1463197022676468,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.08776208758354187,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": 0.02541232667863369,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  }
+                ]
+              },
+              {
+                "query": "indemnification liability Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+                "matches": [
+                  {
+                    "score": 0.1463197022676468,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.10238910466432571,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": 0.03811849281191826,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  }
+                ]
+              },
+              {
+                "query": "confidentiality NDA",
+                "matches": [
+                  {
+                    "score": 0.0,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.0,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  },
+                  {
+                    "score": 0.0,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and an",
+            "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized contro",
+            "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driv"
+          ],
+          "findings": [
+            "Review termination and breach triggers.",
+            "Check indemnity and limitation of liability language.",
+            "Confirm confidentiality / IP sections if present."
+          ]
+        },
+        "compliance": {
+          "agent_type": "compliance",
+          "question": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+          "timestamp": "2026-06-08T11:41:03.034893+00:00",
+          "confidence": 0.05509647028520703,
+          "risk_level": "medium",
+          "retrieval": {
+            "top_k_per_query": 5,
+            "per_query": [
+              {
+                "query": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+                "matches": [
+                  {
+                    "score": 0.16467741131782532,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.09877296537160873,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": 0.042900945991277695,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  }
+                ]
+              },
+              {
+                "query": "privacy data protection Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+                "matches": [
+                  {
+                    "score": 0.21259759366512299,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.11157592386007309,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": 0.04153865575790405,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  }
+                ]
+              },
+              {
+                "query": "audit reporting",
+                "matches": [
+                  {
+                    "score": 0.03758230432868004,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": -0.039163026958703995,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  },
+                  {
+                    "score": -0.09016697108745575,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  }
+                ]
+              },
+              {
+                "query": "security incident breach notification",
+                "matches": [
+                  {
+                    "score": 0.053149402141571045,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.027692439034581184,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  },
+                  {
+                    "score": 0.0,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and an",
+            "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized contro",
+            "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driv"
+          ],
+          "findings": [
+            "Review privacy and data protection obligations.",
+            "Check audit/reporting rights and breach notification clauses.",
+            "Verify data retention/deletion requirements if present."
+          ]
+        },
+        "finance": {
+          "agent_type": "finance",
+          "question": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+          "timestamp": "2026-06-08T11:41:03.039903+00:00",
+          "confidence": 0.03228717716410756,
+          "risk_level": "medium",
+          "retrieval": {
+            "top_k_per_query": 5,
+            "per_query": [
+              {
+                "query": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+                "matches": [
+                  {
+                    "score": 0.16467741131782532,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.09877296537160873,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": 0.042900945991277695,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  }
+                ]
+              },
+              {
+                "query": "payment terms fees invoices billing",
+                "matches": [
+                  {
+                    "score": 0.0,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  },
+                  {
+                    "score": 0.0,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": -0.04753827303647995,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  }
+                ]
+              },
+              {
+                "query": "late fees interest penalties",
+                "matches": [
+                  {
+                    "score": 0.0,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  },
+                  {
+                    "score": -0.026574701070785522,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": -0.03187883645296097,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  }
+                ]
+              },
+              {
+                "query": "limitation of liability indemnification",
+                "matches": [
+                  {
+                    "score": 0.15939417481422424,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": 0.027692439034581184,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  },
+                  {
+                    "score": 0.0,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and an",
+            "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized contro",
+            "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driv"
+          ],
+          "findings": [
+            "Review payment terms, invoicing, and due dates.",
+            "Check late fees, penalties, and interest provisions.",
+            "Confirm liability allocation and indemnity impacts."
+          ]
+        },
+        "operations": {
+          "agent_type": "operations",
+          "question": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+          "timestamp": "2026-06-08T11:41:03.040901+00:00",
+          "confidence": 0.03877959260717034,
+          "risk_level": "medium",
+          "retrieval": {
+            "top_k_per_query": 5,
+            "per_query": [
+              {
+                "query": "Provide comprehensive contract analysis covering all risks, payment terms, termination, liability, compliance, and operational requirements.",
+                "matches": [
+                  {
+                    "score": 0.16467741131782532,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.09877296537160873,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": 0.042900945991277695,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  }
+                ]
+              },
+              {
+                "query": "deliverables milestones timelines",
+                "matches": [
+                  {
+                    "score": 0.09592942148447037,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  },
+                  {
+                    "score": 0.09205745905637741,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.03681051358580589,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  }
+                ]
+              },
+              {
+                "query": "SLA uptime service credits",
+                "matches": [
+                  {
+                    "score": 0.0,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": 0.0,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  },
+                  {
+                    "score": -0.027692439034581184,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  }
+                ]
+              },
+              {
+                "query": "performance standards support",
+                "matches": [
+                  {
+                    "score": 0.030685823410749435,
+                    "chunk_index": 0,
+                    "text": "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and analyze randomized studies in the ad-tech space. ● Work hand-in-hand with our data science and engineering teams to design and implement data models that measure ad performance across large, disparate datasets. ● Perform R&D work by prototyping new statistical a"
+                  },
+                  {
+                    "score": -0.031976476311683655,
+                    "chunk_index": 1,
+                    "text": "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driven productivity tools. About you: ● Possess strong mathematics, statistics and computer science skills that you are ready to turn into industry-ready skills ● Pursuing a degree in a Data Science related field (e.g. Mathematics, Statistics, Computer Science, Ph"
+                  },
+                  {
+                    "score": -0.03681051358580589,
+                    "chunk_index": 2,
+                    "text": "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized control trials. ● Experience contributing to a mature Python-centric code base. ● Strong command of common data science toolkits (Pandas, Numpy, Matplotlib, sci-kit learn). ● Experience writing SQL and working with relational databases. ● Understanding of software e"
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and an",
+            "to work with products that have close interactions with customers Preferred Skills: ● Strong background in probability and statistics, experience implementing statistical models in SQL, and familiarity with fundamentals of randomized contro",
+            "h as Spark and BigQuery. ● Troubleshoot internal and external models by understanding the key ingredients and underlying assumptions of the models. ● Basic familiarity with prompt engineering and a proactive willingness to adopt new AI-driv"
+          ],
+          "findings": [
+            "Review deliverables, timelines, and acceptance criteria.",
+            "Check SLA/uplink uptime commitments and service credits.",
+            "Confirm support and escalation requirements."
+          ]
+        }
+      },
+      "confidence": {
+        "overall_avg": 0.04930482540900509,
+        "per_agent": {
+          "legal": 0.07105606157953541,
+          "compliance": 0.05509647028520703,
+          "finance": 0.03228717716410756,
+          "operations": 0.03877959260717034
+        }
+      },
+      "high_risk_evidence": [
+        "We are seeking Co-Op candidates interested in applying data science to the ad-tech space. Join our Insights Engineering team! You will: ● Use statistical and ML based techniques to reduce selection bias, build representative samples, and an"
+      ],
+      "no_evidence": false,
+      "evidence_score": 0.16467741131782532
+    }
+  }
+]

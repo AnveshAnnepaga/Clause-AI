@@ -76,11 +76,11 @@ HF_TOKEN=your_token
 
 #### Start Backend
  ```bash
- cd milestone3/backend
+ cd backend
  uvicorn app:app --reload --port 8000
 ```
 #### Start UI
 ```bash
-cd milestone4/UI/UI
+cd frontend
 streamlit run app.py
 ```

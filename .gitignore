@@ -92,3 +92,9 @@ notebooks/models_cache/
 
 # Local git worktrees (dev convenience)
 _worktrees/
+
+# Frontend dependencies and builds
+node_modules/
+client/dist/
+dist/
+client/node_modules/
