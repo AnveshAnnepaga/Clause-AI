@@ -35,13 +35,9 @@ export default function LandingPage() {
       if (isLoginMode) {
         await login(email, password);
       } else {
-        if (step === 1) {
-          const res = await api.auth.register({ email, password, name: `${firstName} ${lastName}`.trim() });
-          setStep(2);
-          setTimer(300);
-          setSuccess('OTP successfully sent to your email. Please check your inbox and spam folder.');
-        } else if (step === 2) {
-          await api.auth.verifyOtp(email, otp);
+        if (!isLoginMode) {
+          await api.auth.register({ email, password, name: `${firstName} ${lastName}`.trim() });
+          // Automatically log them in immediately after successful registration
           await login(email, password);
         }
       }
@@ -126,14 +122,14 @@ export default function LandingPage() {
               ×
             </button>
             <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>
-              {isLoginMode ? 'Welcome Back' : (step === 1 ? 'Create Account' : 'Verify Email')}
+              {isLoginMode ? 'Welcome Back' : 'Create Account'}
             </h2>
             
             {error && <div style={{ color: '#ef4444', marginBottom: '1rem', textAlign: 'center', background: 'rgba(239, 68, 68, 0.1)', padding: '0.5rem', borderRadius: '8px' }}>{error}</div>}
             {success && <div style={{ color: '#10b981', marginBottom: '1rem', textAlign: 'center', background: 'rgba(16, 185, 129, 0.1)', padding: '0.5rem', borderRadius: '8px' }}>{success}</div>}
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {!isLoginMode && step === 1 && (
+              {!isLoginMode && (
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <div className="input-group">
                     <label>First Name</label>
@@ -146,8 +142,7 @@ export default function LandingPage() {
                 </div>
               )}
               
-              {step === 1 && (
-                <>
+              <>
                   <div className="input-group" style={{ marginBottom: 0 }}>
                     <label>Email Address</label>
                     <input className="input-field" type="email" value={email} onChange={e => setEmail(e.target.value)} required />
@@ -156,30 +151,12 @@ export default function LandingPage() {
                     <label>Password</label>
                     <input className="input-field" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
                   </div>
-                </>
-              )}
+              </>
 
-              {!isLoginMode && step === 2 && (
-                <div className="input-group">
-                  <label style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>Enter 6-digit OTP</span>
-                    {timer > 0 ? (
-                      <span style={{ color: 'var(--primary)', fontSize: '0.9em' }}>Expires in: {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}</span>
-                    ) : (
-                      <span 
-                        style={{ color: 'var(--primary)', cursor: 'pointer', textDecoration: 'underline', fontSize: '0.9em' }}
-                        onClick={handleResendOtp}
-                      >
-                        Resend OTP
-                      </span>
-                    )}
-                  </label>
-                  <input className="input-field" type="text" value={otp} onChange={e => setOtp(e.target.value)} required />
-                </div>
-              )}
+
 
               <button type="submit" className="btn-primary" style={{ marginTop: '1rem' }}>
-                {isLoginMode ? 'Sign In' : (step === 1 ? 'Continue' : 'Verify & Login')}
+                {isLoginMode ? 'Sign In' : 'Create Account'}
               </button>
             </form>
 
