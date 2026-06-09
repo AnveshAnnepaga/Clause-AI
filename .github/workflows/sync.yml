@@ -19,4 +19,4 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           if [ -z "$HF_TOKEN" ]; then echo "Error: HF_TOKEN is empty!" && exit 1; fi
-          git push https://AnveshAnnepaga:$HF_TOKEN@huggingface.co/spaces/AnveshAnnepaga/clause-ai-agent main --force
+          git push https://annepagaanvesh:$HF_TOKEN@huggingface.co/spaces/annepagaanvesh/clause-ai-agent main --force
