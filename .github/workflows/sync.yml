@@ -19,4 +19,11 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           if [ -z "$HF_TOKEN" ]; then echo "Error: HF_TOKEN is empty!" && exit 1; fi
-          git push https://annepagaanvesh:$HF_TOKEN@huggingface.co/spaces/annepagaanvesh/clause-ai-agent main --force
+          # Remove the git history so we don't send old deleted binary files (like .zip and .jpg)
+          rm -rf .git
+          git init
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add .
+          git commit -m "Deploy to Hugging Face"
+          git push https://annepagaanvesh:$HF_TOKEN@huggingface.co/spaces/annepagaanvesh/clause-ai-agent master:main --force
