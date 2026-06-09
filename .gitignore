@@ -98,3 +98,4 @@ node_modules/
 client/dist/
 dist/
 client/node_modules/
+outputs/
