@@ -1,4 +1,4 @@
-const API_URL = '/api';
+const API_URL = import.meta.env.PROD ? '' : '/api';
 
 export const api = {
   async fetch(endpoint, options = {}) {

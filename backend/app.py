@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 from fastapi import FastAPI, File, Form, Header, HTTPException, UploadFile, Request
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -362,3 +364,22 @@ def get_analytics(authorization: str | None = Header(default=None)):
             "last_active": reports[0]["created_at"] if reports else None
         }
     }
+
+# -------------------------------------------------------------------
+# Serve React Frontend (Production / Hugging Face Spaces)
+# -------------------------------------------------------------------
+frontend_build_path = os.path.join(os.path.dirname(__file__), "..", "client", "dist")
+
+if os.path.isdir(frontend_build_path):
+    # Mount Vite's static assets folder
+    assets_path = os.path.join(frontend_build_path, "assets")
+    if os.path.isdir(assets_path):
+        app.mount("/assets", StaticFiles(directory=assets_path), name="assets")
+
+    @app.get("/{full_path:path}")
+    async def serve_react_app(full_path: str):
+        # Serve index.html for all unrecognized routes to allow client-side routing
+        html_path = os.path.join(frontend_build_path, "index.html")
+        if os.path.exists(html_path):
+            return FileResponse(html_path)
+        raise HTTPException(status_code=404, detail="Frontend build not found")
