@@ -188,18 +188,14 @@ def create_user(*, email: str, password: str, name: str, role: str = "User") -> 
             _encode_salt(salt),
             _pbkdf2_hash(password, salt=salt),
             _utc_now_iso(),
-            0, # not verified
+            1, # AUTO VERIFIED
             otp,
             otp_expires.isoformat()
         ))
 
         con.commit()
-        # Send OTP via email
-        email_sent = send_otp_email(email_n, otp)
-        if not email_sent:
-            return False, "Failed to send OTP email. Please check configuration.", None
 
-    return True, "Account created. Please verify OTP.", otp
+    return True, "Account created successfully! You can now log in.", otp
 
 
 def login(*, email: str, password: str) -> Optional[Tuple[str, Dict[str, Any]]]:
