@@ -26,4 +26,4 @@ jobs:
           git config user.email "action@github.com"
           git add .
           git commit -m "Deploy to Hugging Face"
-          git push https://annepagaanvesh:$HF_TOKEN@huggingface.co/spaces/annepagaanvesh/clause-ai-agent master:main --force
+          git push https://annepagaanvesh:$HF_TOKEN@huggingface.co/spaces/annepagaanvesh/clause-ai-agent HEAD:main --force
