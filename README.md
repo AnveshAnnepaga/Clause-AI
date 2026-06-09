@@ -1,3 +1,11 @@
+---
+title: Clause AI Agent
+emoji: ⚖️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+pinned: false
+---
 # ClauseAI — Multi-Agent Contract Intelligence
 
 AI-powered contract analysis using Retrieval-Augmented Generation (RAG), multi-agent architecture, and vector-based memory.
